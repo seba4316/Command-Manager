@@ -63,16 +63,16 @@ public class CommandManager {
 			return false;
 		if (line.trim().equals(trigger)) {
 			/** Execute the help command if only the message is equal to the trigger */
-			getCommand("help").onCommandExecuted(line, line.split(" "));
+			getCommand("help").onCommand(line, line.split(" "));
 			return true;
 		}
 		line = line.substring(1, line.length());
 		String[] args = line.split(" ");
 		Command command = getCommand(args[0]);
 		if (command != null)
-			command.onCommandExecuted(line, args);
+			command.onCommand(line, args);
 		else /** If the command is null print the help */
-			getCommand("help").onCommandExecuted(line, args);
+			getCommand("help").onCommand(line, args);
 		return true;
 	}
 
